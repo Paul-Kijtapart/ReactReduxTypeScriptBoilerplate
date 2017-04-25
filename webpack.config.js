@@ -9,7 +9,7 @@ const NODE_MODULES = path.resolve(__dirname, 'node_modules');
 // Production
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractSass = new ExtractTextPlugin({
-	filename: "bundle.css",
+	filename: "[name].[contenthash].css",
 	disable: process.env.NODE_ENV === "development"
 });
 
@@ -40,8 +40,7 @@ module.exports = {
 	entry: path.join(SRC, 'index.tsx'),
 	output: {
 		path: DIST,
-		filename: 'bundle.js',
-		publicPath: DIST
+		filename: 'bundle.js'
 	},
 	module: {
 		rules: [{
@@ -87,7 +86,8 @@ module.exports = {
 		port: 9000,
 		contentBase: path.join(__dirname, "dist"),
 		compress: true,
-		stats: 'errors-only'
+		stats: 'errors-only',
+		open: true
 	},
 	// Enable sourcemaps for debugging webpack's output.
 	devtool: "source-map",
