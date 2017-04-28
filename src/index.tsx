@@ -1,9 +1,19 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-import { Hello } from "./components/Hello";
+// Redux
+import { store } from "./store";
+
+// Views
+import { Home } from "./views/Home"
+
+// Mock data
+
 
 ReactDOM.render(
-    <Hello compiler="gg" framework="React" />,
+    <Provider store={store}>
+        <Home />
+    </Provider>,
     document.getElementById("root")
 );
