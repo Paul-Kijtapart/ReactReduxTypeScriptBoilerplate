@@ -5,3 +5,4 @@ A minimalistic boilerplate utilizing:
 * **loaders**: JSON-loader
 * **Router**: React-Router
 * **Plugins**: HotReload, ExtractSass
+* **Debugging**: redux-logger
