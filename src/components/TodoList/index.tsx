@@ -5,7 +5,8 @@ export {
 
 export {
     todoListReducer,
-    filterReducer
+    filterReducer,
+    todoInputReducer
 } from "./reducer";
 
 export {

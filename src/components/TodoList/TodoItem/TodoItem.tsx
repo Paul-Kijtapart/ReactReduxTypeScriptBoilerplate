@@ -14,20 +14,21 @@ export class TodoItem extends React.Component<TodoItemProps, undefined> {
         this.handleOnItemClick = this.handleOnItemClick.bind(this);
         this.handleOnCancelClick = this.handleOnCancelClick.bind(this);
     }
-    
+
     handleOnItemClick(e: any) {
         const id = this.props.id;
         this.props.toggleItem(id);
     }
-    
+
     handleOnCancelClick(e: any) {
         const id = this.props.id;
         this.props.deleteItem(id);
     }
 
     render() {
+        console.log(this.props.completed);
         return (
-            <li 
+            <li
                 className="todoItem"
                 onClick={(e) => {
                     e.preventDefault();
@@ -43,8 +44,8 @@ export class TodoItem extends React.Component<TodoItemProps, undefined> {
                         e.preventDefault();
                         this.handleOnCancelClick(e);
                     }}
-                > 
-                    X 
+                >
+                    X
                 </span>
             </li>
         );

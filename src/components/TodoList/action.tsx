@@ -5,6 +5,7 @@ export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const DELETE_TODO = "DELETE_TODO";
 export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
+export const INPUT_CHANGE = "INPUT_CHANGE";
 
 /*
  * other constants
@@ -18,11 +19,16 @@ export const VisibilityFilters = {
 /*
  * action creators
  */
+let nextTodoId = 0;
 export const addTodoItemAction =
     (description: string) => {
         return {
             type: ADD_TODO,
-            payload: description
+            payload: {
+                id: nextTodoId++,
+                detail: description,
+                completed: false
+            }
         };
     }; // close addTodoItemAction
 
@@ -48,4 +54,12 @@ export const setVisibilityFilter =
             type: TOGGLE_TODO,
             payload: filter
         };
+    };
+
+export const updateTodoInput =
+    (input: string) => {
+        return {
+            type: INPUT_CHANGE,
+            payload: input
+        }
     };

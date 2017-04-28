@@ -7,7 +7,6 @@ import {
 } from "../../components/TodoList";
 
 export const Home = (props: any) => {
-    console.log(props);
     return (
         <div className="home">
             <p> Home </p>

@@ -14,7 +14,7 @@ export const TodoList = (props: any) => {
     ) => {
         return (
             <TodoItem
-                key={index}
+                key={item.id}
                 id={item.id}
                 detail={item.detail}
                 completed={item.completed}
@@ -26,10 +26,15 @@ export const TodoList = (props: any) => {
 
     return (
         <div className="todoList">
-            <TodoMenu />
+            <TodoMenu
+                todoInput={props.todoInput}
+                addItem={props.addItem}
+                updateInput={props.updateInput}
+            />
             <div className="todoContent">
                 {todoItems}
             </div>
+            <p>current input: {props.todoInput} </p>
         </div>
     );
 }; // close TodoList
@@ -42,7 +47,8 @@ import {
     addTodoItemAction,
     deleteTodoItemAction,
     setVisibilityFilter,
-    toggleTodoItemAction
+    toggleTodoItemAction,
+    updateTodoInput
 } from "./action";
 
 
@@ -53,7 +59,8 @@ const mapStateToProps =
     (state: any) => {
         return {
             todoList: state.todoList,
-            filterText: state.filterText
+            filterText: state.filterText,
+            todoInput: state.todoInput
         }
     };
 
@@ -74,6 +81,9 @@ const mapDispatchToProps =
             },
             setVisibilityFilter: (filter: string) => {
                 dispatch(setVisibilityFilter(filter));
+            },
+            updateInput: (input: string) => {
+                dispatch(updateTodoInput(input));
             }
         };
     };

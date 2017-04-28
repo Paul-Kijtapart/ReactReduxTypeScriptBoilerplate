@@ -5,10 +5,12 @@ import {
 // TodoList
 import {
     todoListReducer,
-    filterReducer
+    filterReducer,
+    todoInputReducer
 } from "./components/TodoList";
 
 export let appReducer = combineReducers({
     todoList: todoListReducer,
-    filterText: filterReducer
+    filterText: filterReducer,
+    todoInput: todoInputReducer
 });
