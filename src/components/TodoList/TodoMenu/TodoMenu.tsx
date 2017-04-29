@@ -1,5 +1,8 @@
 import * as React from "react";
 
+// Styles
+import "./style.scss";
+
 export interface TodoMenuProps {
     addItem: any,
     todoInput: string

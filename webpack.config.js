@@ -9,7 +9,7 @@ const NODE_MODULES = path.resolve(__dirname, 'node_modules');
 // Production
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
+    filename: "bundle.css",
     disable: process.env.NODE_ENV === "development"
 });
 

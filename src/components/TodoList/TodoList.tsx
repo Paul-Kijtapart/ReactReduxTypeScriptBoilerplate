@@ -4,6 +4,9 @@ import * as React from "react";
 import { TodoItem, TodoItemProps } from "./TodoItem";
 import { TodoMenu, TodoMenuProps } from "./TodoMenu";
 
+// Styles
+import "./style.scss";
+
 export const TodoList = (props: any) => {
     console.log(props);
     const todoList = props.todoList;
@@ -31,9 +34,9 @@ export const TodoList = (props: any) => {
                 addItem={props.addItem}
                 updateInput={props.updateInput}
             />
-            <div className="todoContent">
+            <ul className="todoContent">
                 {todoItems}
-            </div>
+            </ul>
             <p>current input: {props.todoInput} </p>
         </div>
     );
