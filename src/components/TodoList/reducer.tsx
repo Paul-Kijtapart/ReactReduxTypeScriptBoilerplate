@@ -18,6 +18,7 @@ import {
     INPUT_CHANGE
 } from "./action";
 
+/* Return the index of an element whose id match given id*/
 const getItemIndex = (A: Array<any>, id: number) => {
     return A.findIndex(item => item.id === id);
 };
