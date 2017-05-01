@@ -18,47 +18,45 @@ import {
     INPUT_CHANGE
 } from "./action";
 
-const todo =
-    (
-        state = {},
-        action: any
-    ) => {
-        let payload;
-        switch (action.type) {
-            case ADD_TODO:
-                payload = action.payload;
-                return {
-                    id: payload.id,
-                    detail: payload.detail,
-                    completed: false
-                }
-            case TOGGLE_TODO:
-                console.log("Toggle");
-                break;
-        }
-        return state;
-    };
+const getItemIndex = (A: Array<any>, id: number) => {
+    return A.findIndex(item => item.id === id);
+};
 
 export const todoListReducer: Reducer<any> =
     (
         state: Array<any> = [],
         action: any
     ) => {
+
+        let newState = state.slice();
+        let payload = action.payload;
+        let targetIndex;
+
         switch (action.type) {
             case ADD_TODO:
                 console.log(ADD_TODO);
-                return [
-                    ...state,
-                    todo(undefined, action)
-                ];
+                newState.push({
+                    id: payload.id,
+                    detail: payload.detail,
+                    completed: false
+                });
+                return newState;
             case DELETE_TODO:
                 console.log(DELETE_TODO);
-                break;
+                targetIndex = getItemIndex(newState, payload);
+                if (targetIndex === -1) {
+                    break;
+                }
+                newState.splice(targetIndex, 1);
+                return newState;
             case TOGGLE_TODO:
                 console.log(TOGGLE_TODO);
-                return state.map(t =>
-                    todo(t, action)
-                )
+                targetIndex = getItemIndex(newState, payload);
+                if (targetIndex === -1) {
+                    break;
+                }
+                newState[targetIndex].completed = !newState[targetIndex].completed;
+                return newState;
         }
         return state;
     }; // close addTodoItemReducer

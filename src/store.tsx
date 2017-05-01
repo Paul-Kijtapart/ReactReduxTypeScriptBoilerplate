@@ -12,6 +12,5 @@ import logger from "redux-logger";
 
 export const store = createStore(
     appReducer,
-    {},
-    applyMiddleware(logger)
+    {}
 );

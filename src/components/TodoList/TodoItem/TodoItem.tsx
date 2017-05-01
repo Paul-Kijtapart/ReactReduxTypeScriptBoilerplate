@@ -29,7 +29,7 @@ export class TodoItem extends React.Component<TodoItemProps, undefined> {
     }
 
     render() {
-        console.log(this.props.completed);
+        const status = this.props.completed;
         return (
             <li
                 className="todoItem"
@@ -40,7 +40,7 @@ export class TodoItem extends React.Component<TodoItemProps, undefined> {
             >
                 <p> TodoItem </p>
                 <p> Id: {this.props.id} </p>
-                <p> Status: {this.props.completed} </p>
+                <p> Status: {status} </p>
                 <p> Detaul: {this.props.detail} </p>
                 <span
                     onClick={(e) => {

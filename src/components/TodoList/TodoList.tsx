@@ -8,7 +8,6 @@ import { TodoMenu, TodoMenuProps } from "./TodoMenu";
 import "./style.scss";
 
 export const TodoList = (props: any) => {
-    console.log(props);
     const todoList = props.todoList;
 
     const todoItems = todoList && todoList.map((
